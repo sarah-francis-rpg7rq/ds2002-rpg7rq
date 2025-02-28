@@ -1,0 +1,34 @@
+#Resources
+# https://stackoverflow.com/questions/40336918/how-to-write-a-file-or-data-to-an-s3-object-using-boto3
+
+import boto3
+import urllib.request
+import sys
+
+def script2 ():
+    url_link = sys.argv[1] #first command line argument
+    url_response = request.urlopen(url_link)
+    simple_gif = url_response.read()
+
+    bucket_name = sys.argv[2] #second command line argumenr
+    object_name = "simple_gif.gif"
+    expires_in = 3600 #1 hour
+    s3 = boto3.client('s3') #from class
+
+    #put_object method will upload the data to the s3 bucket
+    s3_response = s3.put_object(
+        Body = simple_gif
+        Bucket = bucket_name
+        Key = object_name
+    )
+
+    #code snippet from lab 4 directions
+    response = s3.generate_presigned_url(
+        'get_object',
+        Params = {'Bucket': bucket_name, 'Key': object_name},
+        ExpiresIn = expires_in
+    ) print(response)
+
+#has to be outside function
+if __name__ == "__main__":
+    script2()
