@@ -1,0 +1,7 @@
+//https://stackoverflow.com/questions/8509226/using-find-command-in-bash-script (find command in bash)
+
+#!/bin/bash
+//fetch the remove bundle & decompress the downloaded bundle
+curl -o "$FILENAME" $1
+mkdir "$DIRECTORY"
+tar -xzvf "$FILENAME" -C "DIRECTORY"
