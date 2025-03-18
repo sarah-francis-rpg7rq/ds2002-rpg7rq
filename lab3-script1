@@ -8,6 +8,6 @@ mkdir "$DIRECTORY"
 tar -xzvf "$FILENAME" -C "DIRECTORY"
 
 //convert the tsv file to a csv file, resulting in a new csv file
-TSV = $(find "DIR" -name "*.tsv")
-CSV = "$csvfile.csv"
-tr '\t' ',' < "TSV" > "CSV"
+$TSV = $(find "DIR" -name "*.tsv")
+$CSV = "$csvfile.csv"
+tr '\t' ',' < "$TSV" > "$CSV"
