@@ -1,0 +1,20 @@
+Problem 2
+cat "$1" | ts -s '\n' > "$2" 
+
+Problem 3
+//https://stackoverflow.com/questions/70797/user-input-and-command-line-arguments (how to read in command line in python)
+import pandas as pd
+import sys
+
+filetoread = sys.argv[1] //don't hardcode for any file, want it to work for all files (reusability)
+df = pd.read_csv(filetoread)
+
+print(df.count()) 
+df.dropna(inplace = True)
+
+print(df.count()) 
+df.drop_duplicates(inplace = True)
+
+print(df.count()) //things should be cleaner by this point
+
+df.to_csv('filename.csv')
