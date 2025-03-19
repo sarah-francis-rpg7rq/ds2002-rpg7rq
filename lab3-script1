@@ -5,9 +5,9 @@ Problem 1
 //fetch the remove bundle & decompress the downloaded bundle
 curl -o "$FILENAME" $1
 mkdir "$DIRECTORY"
-tar -xzvf "$FILENAME" -C "DIRECTORY"
+tar -xzvf "$FILENAME" -C "$DIRECTORY"
 
 //convert the tsv file to a csv file, resulting in a new csv file
-$TSV = $(find "DIR" -name "*.tsv")
-$CSV = "$csvfile.csv"
+TSV = $(find "$DIRECTORY" -name "*.tsv")
+CSV = "csvfile.csv"
 tr '\t' ',' < "$TSV" > "$CSV"
